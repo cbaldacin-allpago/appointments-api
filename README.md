@@ -30,6 +30,7 @@ Obs:. Assuming that Rest maturity model level 2 is ok for the purpose of the cod
 -User story 1 = as a doctor I want to create my patients
 
 1 - POST /api/v1/patients/ - Create a patient
+```console
 request JSON example:
 {
 	"name":"Andrew",
@@ -42,10 +43,11 @@ response JSON:
 	"name":"Andrew",
 	"surname":"Colins"
 }
-
+```
 -User story 2 = as a doctor I want to create appointments for a patient
 
 2 - POST /api/v1/appointments/ - Create an appointment informing an already created patientId
+```console
 request JSON example:
 {
 	"patientId":"58a078dd3be84836742a69dd",
@@ -61,11 +63,12 @@ response JSON:
 	"end":"2017-02-12T15:58:28.726",
 	"rate":null
 }
-
+```
 -User story 3 = as a doctor I want to see an overview of all appointments and their ratings
 
 3 - GET /api/v1/appointments/ - Get all appointments with their rates. (null rates means the appointment hasn't been rated)
 response JSON example:
+```console
 [
 	{"id":"58a07a123be84847bca88f90","patientId":"58a07a123be84847bca88f81","start":"2017-02-24T13:00:00","end":"2017-02-24T14:00:00","rate":null},
 	{"id":"58a07a123be84847bca88f8f","patientId":"58a07a123be84847bca88f80","start":"2017-02-23T13:00:00","end":"2017-02-23T14:00:00","rate":null},
@@ -80,11 +83,12 @@ response JSON example:
 	{"id":"58a07a123be84847bca88f86","patientId":"58a07a123be84847bca88f77","start":"2017-02-10T13:00:00","end":"2017-02-10T14:00:00","rate":null},
 	{"id":"58a07a123be84847bca88f85","patientId":"58a07a123be84847bca88f76","start":"2017-02-09T13:00:00","end":"2017-02-09T14:00:00","rate":null}
 ]
-
+```
 -User story 4 = as a doctor I want to see an overview of the next week’s appointments
 
-4 - GET /api/v1/appointments/next-week - Get next week's appointments considering all patients. Also it was assumed that was not necessary to separate appointments by audiologist.
+4 - GET /api/v1/appointments/next-week - Get next week's appointments considering all patients. Also it was assumed that was not necessary to separate appointments by doctor.
 response JSON example:
+```console
 [
 	{"id":"58a07bb03be8483de087e525","patientId":"58a07bb03be8483de087e516","start":"2017-02-13T13:00:00","end":"2017-02-13T14:00:00","rate":null},
 	{"id":"58a07bb03be8483de087e526","patientId":"58a07bb03be8483de087e517","start":"2017-02-14T13:00:00","end":"2017-02-14T14:00:00","rate":null},
@@ -92,11 +96,12 @@ response JSON example:
 	{"id":"58a07bb03be8483de087e528","patientId":"58a07bb03be8483de087e519","start":"2017-02-16T13:00:00","end":"2017-02-16T14:00:00","rate":null},
 	{"id":"58a07bb03be8483de087e529","patientId":"58a07bb03be8483de087e51a","start":"2017-02-17T13:00:00","end":"2017-02-17T14:00:00","rate":null}
 ]
-
+```
 #User story 5 = as a patient I want to see my next appointment
 
 5 - GET /api/v1/patients/{patientId}/next-appointment - Get next appointment for the given patient.
 response JSON example:
+```console
 {
 	"id":"58a07e223be8481aa4789dd1",
 	"patientId":{patientId},
@@ -104,12 +109,12 @@ response JSON example:
 	"end":"2017-02-13T14:00:00",
 	"rate":null
 }
-	
+```
 	
 #User story 6 = as a patient I want to rate my last appointment
 	
 6 - PUT /api/v1/patients/{patientId}/rate	
-	
+```console
 request JSON example:
 {
 	"rate":"8"
@@ -124,12 +129,13 @@ response JSON:
 	"end":"2017-02-10T14:00:00",
 	"rate":8
 }
-	
+```	
 OBS:. This service has been designed to rate any appointment not only the last.
 In order to rate a specific appointment provide the appointmentId in the JSON request.
 If the appointmentId is absent then the last appointment is rated by default.
 
 Example:
+```console
 request JSON example:
 {
 	"appointmentId":{appointmentId},
@@ -144,3 +150,4 @@ response JSON:
 	"end":"2017-02-10T14:00:00",
 	"rate":8
 }
+```
