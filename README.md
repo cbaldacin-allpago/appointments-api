@@ -27,7 +27,7 @@ Obs:. Assuming that Rest maturity model level 2 is ok for the purpose of the cod
 ## API documentation and Solution description
 
 
--User story 1 = as a doctor I want to create my patients
+User story 1 = as a doctor I want to create my patients
 
 1 - POST /api/v1/patients/ - Create a patient
 ```console
@@ -44,7 +44,7 @@ response JSON:
 	"surname":"Colins"
 }
 ```
--User story 2 = as a doctor I want to create appointments for a patient
+User story 2 = as a doctor I want to create appointments for a patient
 
 2 - POST /api/v1/appointments/ - Create an appointment informing an already created patientId
 ```console
@@ -64,7 +64,7 @@ response JSON:
 	"rate":null
 }
 ```
--User story 3 = as a doctor I want to see an overview of all appointments and their ratings
+User story 3 = as a doctor I want to see an overview of all appointments and their ratings
 
 3 - GET /api/v1/appointments/ - Get all appointments with their rates. (null rates means the appointment hasn't been rated)
 response JSON example:
@@ -84,7 +84,7 @@ response JSON example:
 	{"id":"58a07a123be84847bca88f85","patientId":"58a07a123be84847bca88f76","start":"2017-02-09T13:00:00","end":"2017-02-09T14:00:00","rate":null}
 ]
 ```
--User story 4 = as a doctor I want to see an overview of the next week’s appointments
+User story 4 = as a doctor I want to see an overview of the next week’s appointments
 
 4 - GET /api/v1/appointments/next-week - Get next week's appointments considering all patients. Also it was assumed that was not necessary to separate appointments by doctor.
 response JSON example:
@@ -97,7 +97,7 @@ response JSON example:
 	{"id":"58a07bb03be8483de087e529","patientId":"58a07bb03be8483de087e51a","start":"2017-02-17T13:00:00","end":"2017-02-17T14:00:00","rate":null}
 ]
 ```
-#User story 5 = as a patient I want to see my next appointment
+User story 5 = as a patient I want to see my next appointment
 
 5 - GET /api/v1/patients/{patientId}/next-appointment - Get next appointment for the given patient.
 response JSON example:
@@ -111,7 +111,7 @@ response JSON example:
 }
 ```
 	
-#User story 6 = as a patient I want to rate my last appointment
+User story 6 = as a patient I want to rate my last appointment
 	
 6 - PUT /api/v1/patients/{patientId}/rate	
 ```console
