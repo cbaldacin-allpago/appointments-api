@@ -16,18 +16,18 @@ Obs:. Assuming that Rest maturity model level 2 is ok for the purpose of the cod
 
 ## How to run
 
-1 - Make sure you have properly installed Java 8 and Maven.
-2 - Open the file "src\main\resources\application.properties" and set your profile. 
-2.1 - profile-dev is for embedded mongodb 
-2.2 - profile-prod is for external mongodb which the configuration is at "src\main\resources\application-profile-prod.properties" (default)
-3 - Open your command window, go to the project's root folder (/appointments-api) and run "mvn clean package"
-4 - Once the build is run with success, jump ahead to the target folder and type "java -jar appointments-api-0.1.0.jar" and that's it. Tomcat is already embedded by the spring boot.
+- 1- Make sure you have properly installed Java 8 and Maven.
+- 2- Open the file "src\main\resources\application.properties" and set your profile. 
+- 2.1- profile-dev is for embedded mongodb 
+- 2.2- profile-prod is for external mongodb which the configuration is at "src\main\resources\application-profile-prod.properties" (default)
+- 3- Open your command window, go to the project's root folder (/appointments-api) and run "mvn clean package"
+- 4- Once the build is run with success, jump ahead to the target folder and type "java -jar appointments-api-0.1.0.jar" and that's it. Tomcat is already embedded by the spring boot.
 
 
 ## API documentation and Solution description
 
 
-#User story 1 = as a doctor I want to create my patients
+-User story 1 = as a doctor I want to create my patients
 
 1 - POST /api/v1/patients/ - Create a patient
 request JSON example:
@@ -43,7 +43,7 @@ response JSON:
 	"surname":"Colins"
 }
 
-#User story 2 = as a doctor I want to create appointments for a patient
+-User story 2 = as a doctor I want to create appointments for a patient
 
 2 - POST /api/v1/appointments/ - Create an appointment informing an already created patientId
 request JSON example:
@@ -62,7 +62,7 @@ response JSON:
 	"rate":null
 }
 
-#User story 3 = as a doctor I want to see an overview of all appointments and their ratings
+-User story 3 = as a doctor I want to see an overview of all appointments and their ratings
 
 3 - GET /api/v1/appointments/ - Get all appointments with their rates. (null rates means the appointment hasn't been rated)
 response JSON example:
@@ -81,7 +81,7 @@ response JSON example:
 	{"id":"58a07a123be84847bca88f85","patientId":"58a07a123be84847bca88f76","start":"2017-02-09T13:00:00","end":"2017-02-09T14:00:00","rate":null}
 ]
 
-#User story 4 = as a doctor I want to see an overview of the next week’s appointments
+-User story 4 = as a doctor I want to see an overview of the next week’s appointments
 
 4 - GET /api/v1/appointments/next-week - Get next week's appointments considering all patients. Also it was assumed that was not necessary to separate appointments by audiologist.
 response JSON example:
